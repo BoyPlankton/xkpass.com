@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="A passphrase generator based on XKCD 936.">
+    <meta name="author" content="Vincent Marcus">
+
+    <title>xkpass: xkcd Passphrase Generator</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <!-- Custom styles for this template -->
+    <link href="css/sticky-footer.css" rel="stylesheet">
+    
+    <script src="js/words.js"></script>
+    <script src="js/xkpass.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Begin page content -->
+    <div class="container">
+      <div class="page-header">
+        <h1>xkpass</h1>
+      </div>
+
+      <p class="lead">Just a simple passphrase generator based on a <a href="https://xkcd.com/936/">comic strip</a>.</p>
+
+      <div class="list-group" id="generated_passphrases">
+      </div>
+
+      <p>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="include_numbers">
+          <label class="form-check-label" for="include_numbers">
+            Include Numbers
+          </label>
+        </div>
+      </p>
+
+      <p>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <button class="btn btn-outline-secondary" type="button" onclick="genPassPhrases()">Generate Passphrases</button>
+          </div>
+          <select class="custom-select" id="max_word_length_val" onchange="calculateEntropy()">
+            <option selected>Max Word Length...</option>
+          </select>
+        </div>
+      </p>
+
+      <div class="alert alert-success" role="alert" id="entropy_alert">
+        <h4 class="alert-heading">Entropy</h4>
+        <p><span>These settings should generate a <b><span id="passphrase_strength"></span></b> passphrase with about 2<sup id="calculated_entropy">x</sup> bits of entropy.</span> <span id="entropy_message"></span></p>
+        <hr>
+        <p class="mb-0">Visit <a href="https://www.explainxkcd.com/wiki/index.php/936:_Password_Strength">explain xkcd</a> for an explanation of the math.</p>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script>
+      initUI();
+    </script>
+  </body>
+</html>
