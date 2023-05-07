@@ -3,6 +3,7 @@
 <<<<<<< HEAD
       "bootstrap": "4.0.0",
 =======
+      "bootstrap": "5.2.3",
 >>>>>>> 66e8a3a0eb3de60f585063306e3f21589de6f201
       "jquery": "3.6.4",
       "popperjs": "1.12.9"
