@@ -1,7 +1,7 @@
 {
     "dependencies": {
       "bootstrap": "5.2.3",
-      "jquery": "3.6.4",
+      "jquery": "3.7.0",
       "popperjs": "2.11.6"
     }
   }
